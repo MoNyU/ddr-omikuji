@@ -19,6 +19,7 @@ module.exports = {
     "react/prop-types": 0,
     "@typescript-eslint/explicit-function-return-type": 0,
     "@typescript-eslint/explicit-member-accessibility": 0,
+    "@typescript-eslint/explicit-module-boundary-types": 0,
     "@typescript-eslint/no-explicit-any": 0,
     "@typescript-eslint/no-var-requires": 0,
     "@typescript-eslint/no-use-before-define": 0,
@@ -26,12 +27,6 @@ module.exports = {
       2,
       {
         "argsIgnorePattern": "^_",
-      },
-    ],
-    "no-console": [
-      2,
-      {
-        "allow": ["warn", "error"],
       },
     ],
     "indent": "off",
