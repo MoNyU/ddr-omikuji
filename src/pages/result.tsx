@@ -1,11 +1,7 @@
-import { Head } from "@/components/Head";
-import styled from "@emotion/styled";
+
+import { Layout } from "@/layouts/Layout";
 import { FC } from "react";
 
-const StyledWrapper = styled.div`
-  display: flex;
-`;
-
-const ResultPage: FC = () => (<StyledWrapper><Head />result</StyledWrapper>);
+const ResultPage: FC = () => (<Layout>result</Layout>);
 
 export default ResultPage;

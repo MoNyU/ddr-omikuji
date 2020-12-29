@@ -1,16 +1,18 @@
-import styled from "@emotion/styled";
-import { FC } from "react";
-import { Head } from "@/components/Head";
+import { FC, useCallback } from "react";
+import { Layout } from "@/layouts/Layout";
+import { randomPick } from "@/utils/randomPick";
 
-const StyledWrapper = styled.div`
-  display: flex;
-`;
+const IndexPage: FC = () => {
+  const handleClick = useCallback(() => {
+    const songs = randomPick({ mode: "sp", min: 1, max: 19, number: 4 });
+    console.log({ songs });
+  }, []);
 
-const IndexPage: FC = () => (
-  <StyledWrapper>
-    <Head />
-    unko
-  </StyledWrapper>
-);
+  return (
+    <Layout>
+      <button onClick={handleClick}>click</button>
+    </Layout>
+  );
+};
 
 export default IndexPage;
