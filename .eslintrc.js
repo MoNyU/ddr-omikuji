@@ -14,6 +14,7 @@ module.exports = {
     "node": true,
   },
   "rules": {
+    "no-multi-spaces": 2,
     "react/react-in-jsx-scope": 0,
     "react/display-name": 0,
     "react/prop-types": 0,
