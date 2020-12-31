@@ -15,6 +15,7 @@ const StyledButton = styled.button`
   outline: none;
   font-size: 1.4rem;
   cursor: pointer;
+  background-color: #efefef;
 `;
 
 export const Button: FC<Props> = ({

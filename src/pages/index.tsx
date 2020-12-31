@@ -42,7 +42,9 @@ const StyledRadioLabel = styled.label`
   margin-right: 16px;
 `;
 
-const StyledNumberInput = styled.input``;
+const StyledNumberInput = styled.input`
+  width: 64px;
+`;
 
 const StyledSubmitButton = styled(Button)`
   font-weight: bold;
@@ -116,7 +118,7 @@ const IndexPage: FC = () => {
           <StyledRadioLabel htmlFor="dp">DP</StyledRadioLabel>
         </StyledRow>
 
-        <StyledLabel>レベル</StyledLabel>
+        <StyledLabel>レベル(足1〜19)</StyledLabel>
         <StyledRow>
           足
           <StyledNumberInput
@@ -138,7 +140,7 @@ const IndexPage: FC = () => {
           />
         </StyledRow>
 
-        <StyledLabel>選ぶ曲数</StyledLabel>
+        <StyledLabel>選ぶ曲数(最大10曲)</StyledLabel>
         <StyledRow>
           <StyledNumberInput
             name="number"

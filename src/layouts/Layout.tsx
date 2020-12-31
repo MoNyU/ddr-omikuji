@@ -8,7 +8,6 @@ const StyledWrapper = styled.article`
   flex-flow: column wrap;
   align-items: center;
   width: 100%;
-  min-height: 100vh;
   padding: 16px;
 `;
 
