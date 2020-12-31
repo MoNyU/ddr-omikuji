@@ -7,6 +7,7 @@ import { Layout } from "@/layouts/Layout";
 import { getDifficulty } from "@/utils/getDifficulty";
 import { useRandomPick } from "@/utils/useRandomPick";
 import styled from "@emotion/styled";
+import Head from "next/head";
 import { useRouter } from "next/router";
 import { FC, useCallback, useMemo } from "react";
 
@@ -89,6 +90,9 @@ const ResultPage: FC = () => {
 
   return (
     <Layout>
+      <Head>
+        <meta name="robots" content="noindex" />
+      </Head>
       <StyledParagraph>{mode.toUpperCase()}のおみくじ結果</StyledParagraph>
       <StyledList>
         {songs.map((song) => (
