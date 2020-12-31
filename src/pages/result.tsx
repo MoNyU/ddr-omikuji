@@ -102,7 +102,7 @@ const ResultPage: FC = () => {
       <StyledTwitterButton
         tweet={tweet}
         hashtags={["DDR", "DDRおみくじ"]}
-        url="https://monyu.github.io/ddr-omikuji"
+        url="https://monyu.github.io/ddr-omikuji/"
       />
       <StyledRepickButton onClick={handleRepickClick}>
         もう一度引く

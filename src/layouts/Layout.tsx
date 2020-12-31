@@ -30,7 +30,7 @@ export const Layout: FC = ({ children }) => (
         property="og:description"
         content="DDRに収録されている曲からランダムに数曲ピックアップするおみくじです。"
       />
-      <meta property="og:url" content="https://monyu.github.io/ddr-omikuji" />
+      <meta property="og:url" content="https://monyu.github.io/ddr-omikuji/" />
       <meta name="twitter:card" content="summary" />
       <meta name="twitter:creator" content="@MoNyU_Chan" />
       <link
