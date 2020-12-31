@@ -3,8 +3,10 @@ import { FC } from "react";
 import { TwitterIcon, TwitterShareButton } from "react-share";
 
 type Props = {
+  className?: string;
   hashtags: string[];
   tweet: string;
+  url: string;
 };
 
 const StyledButton = styled(TwitterShareButton)`
@@ -21,8 +23,18 @@ const StyledButton = styled(TwitterShareButton)`
   border-radius: 4px;
 `;
 
-export const TwitterButton: FC<Props> = ({ hashtags, tweet }) => (
-  <StyledButton title={tweet} url="https://monyu.github.io/ddr-omikuji" hashtags={hashtags}>
+export const TwitterButton: FC<Props> = ({
+  className,
+  hashtags,
+  tweet,
+  url,
+}) => (
+  <StyledButton
+    className={className}
+    title={tweet}
+    url={url}
+    hashtags={hashtags}
+  >
     <TwitterIcon size={32} />
     結果をツイートする
   </StyledButton>
