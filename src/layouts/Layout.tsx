@@ -14,6 +14,7 @@ const StyledWrapper = styled.article`
 
 const StyledTitle = styled.h1`
   font-size: 2.4rem;
+  cursor: pointer;
 `;
 
 export const Layout: FC = ({ children }) => (

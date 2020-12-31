@@ -8,7 +8,9 @@ type Props = {
 };
 
 export const LinkButton: FC<Props> = ({ children, className, to }) => (
-  <Link href={to} passHref>
-    <Button className={className}>{children}</Button>
+  <Link href={to}>
+    <a>
+      <Button className={className}>{children}</Button>
+    </a>
   </Link>
 );

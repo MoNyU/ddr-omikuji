@@ -1,8 +1,10 @@
 import styled from "@emotion/styled";
-import { FC } from "react";
+import { ElementType, FC } from "react";
 
 type Props = {
+  as?: ElementType;
   className?: string;
+  type?: "button" | "submit" | "reset";
   onClick?: () => void;
 };
 
@@ -12,10 +14,17 @@ const StyledButton = styled.button`
   border-radius: 4px;
   outline: none;
   font-size: 1.4rem;
+  cursor: pointer;
 `;
 
-export const Button: FC<Props> = ({ children, className, onClick }) => (
-  <StyledButton className={className} onClick={onClick}>
+export const Button: FC<Props> = ({
+  as,
+  children,
+  className,
+  type = "button",
+  onClick,
+}) => (
+  <StyledButton as={as} className={className} type={type} onClick={onClick}>
     {children}
   </StyledButton>
 );
