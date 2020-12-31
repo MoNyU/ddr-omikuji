@@ -1,3 +1,8 @@
-module.exports = {
-  assetPrefix: process.env.GITHUB_PAGES ? "/ddr-omikuji" : "",
-};
+const isProd = process.env.NODE_ENV === "production";
+
+module.exports = isProd
+  ? {
+      basePath: "/ddr-omikuji",
+      assetPrefix: "/ddr-omikuji",
+    }
+  : {};
