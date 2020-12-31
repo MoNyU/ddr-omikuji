@@ -1,19 +1,19 @@
 module.exports = {
-  "parser": "@typescript-eslint/parser",
-  "plugins": ["@typescript-eslint"],
-  "extends": [
+  parser: "@typescript-eslint/parser",
+  plugins: ["@typescript-eslint"],
+  extends: [
     "eslint:recommended",
     "plugin:react/recommended",
     "plugin:react-hooks/recommended",
     "plugin:@typescript-eslint/recommended",
   ],
-  "env": {
-    "es6": true,
-    "browser": true,
-    "jest": true,
-    "node": true,
+  env: {
+    es6: true,
+    browser: true,
+    jest: true,
+    node: true,
   },
-  "rules": {
+  rules: {
     "no-multi-spaces": 2,
     "react/react-in-jsx-scope": 0,
     "react/display-name": 0,
@@ -27,26 +27,33 @@ module.exports = {
     "@typescript-eslint/no-unused-vars": [
       2,
       {
-        "argsIgnorePattern": "^_",
+        argsIgnorePattern: "^_",
       },
     ],
-    "indent": "off",
-    "@typescript-eslint/indent": ["error", 2],
-    "quotes": "off",
+    indent: "off",
+    "@typescript-eslint/indent": [
+      "error",
+      2,
+      { offsetTernaryExpressions: true },
+    ],
+    quotes: "off",
     "@typescript-eslint/quotes": ["error"],
-    "semi": "off",
+    semi: "off",
     "@typescript-eslint/semi": "error",
     "comma-dangle": "off",
     "@typescript-eslint/comma-dangle": ["error", "always-multiline"],
-    "@typescript-eslint/member-delimiter-style": ["error", {
-      "multiline": {
-        "delimiter": "semi",
-        "requireLast": true,
+    "@typescript-eslint/member-delimiter-style": [
+      "error",
+      {
+        multiline: {
+          delimiter: "semi",
+          requireLast: true,
+        },
+        singleline: {
+          delimiter: "semi",
+          requireLast: false,
+        },
       },
-      "singleline": {
-        "delimiter": "semi",
-        "requireLast": false,
-      },
-    }],
+    ],
   },
 };
