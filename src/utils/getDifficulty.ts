@@ -6,7 +6,7 @@ const DIFFICULTY = [
   ["鬼", "#ff42ff"],
 ];
 
-export const getDifficulty = (mode: "sp" | "dp", difficulty: number) => {
-  if (mode === "dp") difficulty++;
-  return DIFFICULTY[difficulty];
-};
+export const getDifficulty = (mode: "sp" | "dp", difficulty: number) => [
+  ...DIFFICULTY[difficulty + +(mode === "dp")],
+  difficulty,
+];

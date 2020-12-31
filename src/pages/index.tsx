@@ -1,8 +1,7 @@
-import { useRouter } from "next/router";
-import { FC, useCallback, useState } from "react";
 import { Layout } from "@/layouts/Layout";
-import { randomPick } from "@/utils/randomPick";
+import { useRandomPick } from "@/utils/useRandomPick";
 import styled from "@emotion/styled";
+import { FC, useState } from "react";
 
 const StyledDescription = styled.p`
   font-size: 1.4rem;
@@ -15,26 +14,18 @@ const StyledButton = styled.button`
 `;
 
 const IndexPage: FC = () => {
-  const router = useRouter();
   const [mode] = useState<"sp" | "dp">("sp");
+  const [min] = useState(1);
+  const [max] = useState(19);
+  const [number] = useState(3);
 
-  const handleClick = useCallback(() => {
-    const songs = randomPick({ mode, min: 1, max: 19, number: 4 });
-    const params = new URLSearchParams();
-    params.set("mode", mode);
-    
-    songs.forEach(({ name, difficulty }, i) => {
-      params.set(`n${i}`, name);
-      params.set(`d${i}`, difficulty + "");
-    });
-
-    router.push(`/result?${params.toString()}`);
-  }, [mode, router]);
+  const handleClick = useRandomPick({ mode, min, max, number });
 
   return (
     <Layout>
       <StyledDescription>
-        DDRに収録されている曲(2020/12/30現在)からランダムに数曲セレクトします<br />
+        DDRに収録されている曲(2020/12/31現在)からランダムに数曲セレクトします
+        <br />
         知らない曲や苦手な譜面でもとりあえずトライ！
       </StyledDescription>
       <StyledButton onClick={handleClick}>おみくじを引く</StyledButton>
