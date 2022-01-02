@@ -14,24 +14,16 @@ jobs:
       - name: setup node
         uses: actions/setup-node@v2
         with:
-          node-version: "15.x"
-
-      - name: cache dependencies
-        uses: actions/cache@v2
-        with:
-          path: ~/.npm
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-node-
+          node-version: "16.x"
 
       - name: install
-        run: npm install --frozen-lockfile
+        run: yarn install --frozen-lockfile
 
       - name: build
-        run: npm run build
+        run: yarn build
 
       - name: export
-        run: npm run export
+        run: yarn export
 
       - name: add nojekyll
         run: touch ./out/.nojekyll
