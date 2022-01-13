@@ -90,7 +90,7 @@ const IndexPage: FC = () => {
   return (
     <Layout>
       <StyledDescription>
-        DDRに収録されている曲({"2022/01/01"}
+        DDRに収録されている曲({"2022/01/13"}
         現在)からランダムに数曲セレクトします
         <br />
         知らない曲や苦手な譜面でもとりあえずトライ！
