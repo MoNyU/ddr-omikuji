@@ -36,6 +36,9 @@ export const SongSummary: FC<Props> = ({
 }) => {
   const [difficultyName, color, levelIndex] = difficulty;
   const level = levels[mode][levelIndex];
+  const hasShockArrow = Array.isArray(sa)
+    ? sa[mode === "sp" ? levelIndex : levelIndex + 1]
+    : difficultyName === "鬼" && sa;
 
   return (
     <StyledSummary>
@@ -43,7 +46,7 @@ export const SongSummary: FC<Props> = ({
         {name + " "}
         <StyledDifficulty noForwardColor={color}>
           ({difficultyName}
-          {difficultyName === "鬼" && sa && "⚡"}:{level})
+          {hasShockArrow && "⚡"}:{level})
         </StyledDifficulty>
       </StyledName>
       <StyledDetail>

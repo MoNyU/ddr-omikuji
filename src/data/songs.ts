@@ -1,19 +1,19 @@
 export type SongData = {
-  artist: string;
-  bpm: string;
-  levels: {
+  readonly artist: string;
+  readonly bpm: string;
+  readonly levels: {
     /** 習, 楽, 踊, 激, 鬼。無ければ 0 */
-    sp: [number, number, number, number, number];
+    readonly sp: readonly [number, number, number, number, number];
     /** 楽, 踊, 激, 鬼。無ければ 0 */
-    dp: [number, number, number, number];
+    readonly dp: readonly [number, number, number, number];
   };
-  name: string;
-  /** 鬼がショックアローかどうか */
-  sa: boolean;
+  readonly name: string;
+  /** 鬼がショックアローかどうか。配列の場合は各難易度ごとに SA かどうかを指定する */
+  readonly sa: boolean | readonly boolean[];
   /** 初出バージョン(格納フォルダ) */
-  version: string;
+  readonly version: string;
 };
 
 export type Songs = {
-  [name: string]: Omit<SongData, "name">;
+  readonly [name: string]: Omit<SongData, "name">;
 };
