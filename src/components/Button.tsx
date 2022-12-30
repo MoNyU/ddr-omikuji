@@ -1,8 +1,9 @@
 import styled from "@emotion/styled";
-import { ElementType, FC } from "react";
+import { ElementType, ReactNode } from "react";
 
 type Props = {
   as?: ElementType;
+  children: ReactNode;
   className?: string;
   type?: "button" | "submit" | "reset";
   onClick?: () => void;
@@ -18,13 +19,13 @@ const StyledButton = styled.button`
   background-color: #efefef;
 `;
 
-export const Button: FC<Props> = ({
+export const Button = ({
   as,
   children,
   className,
   type = "button",
   onClick,
-}) => (
+}: Props) => (
   <StyledButton as={as} className={className} type={type} onClick={onClick}>
     {children}
   </StyledButton>

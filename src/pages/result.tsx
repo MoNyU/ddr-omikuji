@@ -1,15 +1,16 @@
 import { Button } from "@/components/Button";
 import { LinkButton } from "@/components/LinkButton";
-import { SongSummary, SongSummaryProps } from "@/components/SongSummary";
+import { SongSummary, type SongSummaryProps } from "@/components/SongSummary";
 import { TwitterButton } from "@/components/TwitterButton";
 import dictionary from "@/data/songs.json";
 import { Layout } from "@/layouts/Layout";
 import { getDifficulty } from "@/utils/getDifficulty";
 import { useRandomPick } from "@/utils/useRandomPick";
 import styled from "@emotion/styled";
+import type { NextPage } from "next";
 import Head from "next/head";
 import { useRouter } from "next/router";
-import { FC, useCallback, useMemo } from "react";
+import { useCallback, useMemo } from "react";
 
 const StyledParagraph = styled.p`
   font-size: 1.8rem;
@@ -38,7 +39,7 @@ const StyledLinkButton = styled(LinkButton)`
   margin-top: 16px;
 `;
 
-const ResultPage: FC = () => {
+const ResultPage: NextPage = () => {
   const router = useRouter();
   const mode =
     process.browser && localStorage.getItem("mode") === "dp" ? "dp" : "sp";

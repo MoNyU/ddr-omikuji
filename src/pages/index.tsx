@@ -3,7 +3,7 @@ import { Layout } from "@/layouts/Layout";
 import { useRandomPick } from "@/utils/useRandomPick";
 import styled from "@emotion/styled";
 import { useFormik } from "formik";
-import { FC } from "react";
+import type { NextPage } from "next";
 
 const StyledDescription = styled.p`
   font-size: 1.4rem;
@@ -53,7 +53,7 @@ const StyledSubmitButton = styled(Button)`
   margin-top: 48px;
 `;
 
-const IndexPage: FC = () => {
+const IndexPage: NextPage = () => {
   const randomPick = useRandomPick();
 
   const initialValues = process.browser

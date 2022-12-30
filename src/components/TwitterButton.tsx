@@ -1,5 +1,4 @@
 import styled from "@emotion/styled";
-import { FC } from "react";
 import { TwitterIcon, TwitterShareButton } from "react-share";
 
 type Props = {
@@ -23,12 +22,7 @@ const StyledButton = styled(TwitterShareButton)`
   border-radius: 4px;
 `;
 
-export const TwitterButton: FC<Props> = ({
-  className,
-  hashtags,
-  tweet,
-  url,
-}) => (
+export const TwitterButton = ({ className, hashtags, tweet, url }: Props) => (
   <StyledButton
     className={className}
     title={tweet}

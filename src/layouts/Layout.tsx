@@ -1,7 +1,11 @@
 import styled from "@emotion/styled";
 import Head from "next/head";
 import Link from "next/link";
-import { FC } from "react";
+import type { ReactNode } from "react";
+
+type Props = {
+  children: ReactNode;
+};
 
 const StyledWrapper = styled.article`
   display: flex;
@@ -11,12 +15,16 @@ const StyledWrapper = styled.article`
   padding: 16px;
 `;
 
+const StyledLink = styled(Link)`
+  all: unset;
+`;
+
 const StyledTitle = styled.h1`
   font-size: 2.4rem;
   cursor: pointer;
 `;
 
-export const Layout: FC = ({ children }) => (
+export const Layout = ({ children }: Props) => (
   <StyledWrapper>
     <Head>
       <title>DDRおみくじ</title>
@@ -41,9 +49,9 @@ export const Layout: FC = ({ children }) => (
         href="https://unpkg.com/modern-css-reset/dist/reset.min.css"
       />
     </Head>
-    <Link href="/" passHref>
+    <StyledLink href="/">
       <StyledTitle>💃DDRおみくじ🕺</StyledTitle>
-    </Link>
+    </StyledLink>
     {children}
   </StyledWrapper>
 );

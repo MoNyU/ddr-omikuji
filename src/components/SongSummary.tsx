@@ -1,6 +1,5 @@
 import { SongData } from "@/data/songs";
 import styled from "@emotion/styled";
-import { FC } from "react";
 
 type Props = SongData & {
   difficulty: [string, string, number];
@@ -24,7 +23,7 @@ const StyledDetail = styled.p`
   font-size: 1.4rem;
 `;
 
-export const SongSummary: FC<Props> = ({
+export const SongSummary = ({
   artist,
   bpm,
   difficulty,
@@ -33,7 +32,7 @@ export const SongSummary: FC<Props> = ({
   mode,
   sa,
   version,
-}) => {
+}: Props) => {
   const [difficultyName, color, levelIndex] = difficulty;
   const level = levels[mode][levelIndex];
   const hasShockArrow = Array.isArray(sa)

@@ -1,16 +1,15 @@
 import Link from "next/link";
-import { FC } from "react";
+import type { ReactNode } from "react";
 import { Button } from "./Button";
 
 type Props = {
+  children: ReactNode;
   className?: string;
   to: string;
 };
 
-export const LinkButton: FC<Props> = ({ children, className, to }) => (
+export const LinkButton = ({ children, className, to }: Props) => (
   <Link href={to}>
-    <a>
-      <Button className={className}>{children}</Button>
-    </a>
+    <Button className={className}>{children}</Button>
   </Link>
 );
