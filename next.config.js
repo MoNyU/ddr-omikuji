@@ -5,4 +5,6 @@ module.exports = isProd
       basePath: "/ddr-omikuji",
       assetPrefix: "/ddr-omikuji",
     }
-  : {};
+  : {
+      compress: true,
+    };
