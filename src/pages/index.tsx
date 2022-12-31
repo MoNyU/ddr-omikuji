@@ -1,9 +1,5 @@
 import { Button } from "@/components/atoms/buttons/Button";
 import { Layout } from "@/layouts/Layout";
-import { isBrowser } from "@/utils/isBrowser";
-import { useRandomPick } from "@/utils/useRandomPick";
-import { useFormik } from "formik";
-import type { NextPage } from "next";
 import {
   formStyle,
   labelStyle,
@@ -13,7 +9,11 @@ import {
   radioStyle,
   rowStyle,
   submitButtonStyle,
-} from "./IndexPage.css";
+} from "@/styles/IndexPage.css";
+import { isBrowser } from "@/utils/isBrowser";
+import { useRandomPick } from "@/utils/useRandomPick";
+import { useFormik } from "formik";
+import type { NextPage } from "next";
 
 const IndexPage: NextPage = () => {
   const randomPick = useRandomPick();

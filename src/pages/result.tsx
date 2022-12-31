@@ -7,13 +7,6 @@ import {
 } from "@/components/atoms/SongSummary";
 import dictionary from "@/data/songs.json";
 import { Layout } from "@/layouts/Layout";
-import { getDifficultyInfo } from "@/utils/getDifficultyInfo";
-import { isBrowser } from "@/utils/isBrowser";
-import { useRandomPick } from "@/utils/useRandomPick";
-import type { NextPage } from "next";
-import Head from "next/head";
-import { useRouter } from "next/router";
-import { useCallback, useMemo } from "react";
 import {
   linkButtonStyle,
   liStyle,
@@ -21,7 +14,14 @@ import {
   repickButtonStyle,
   twitterButtonStyle,
   ulStyle,
-} from "./ResultPage.css";
+} from "@/styles/ResultPage.css";
+import { getDifficultyInfo } from "@/utils/getDifficultyInfo";
+import { isBrowser } from "@/utils/isBrowser";
+import { useRandomPick } from "@/utils/useRandomPick";
+import type { NextPage } from "next";
+import Head from "next/head";
+import { useRouter } from "next/router";
+import { useCallback, useMemo } from "react";
 
 const ResultPage: NextPage = () => {
   const router = useRouter();
