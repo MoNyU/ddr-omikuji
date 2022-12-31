@@ -1,62 +1,24 @@
-import { Button } from "@/components/Button";
+import { Button } from "@/components/atoms/buttons/Button";
 import { Layout } from "@/layouts/Layout";
+import { isBrowser } from "@/utils/isBrowser";
 import { useRandomPick } from "@/utils/useRandomPick";
-import styled from "@emotion/styled";
 import { useFormik } from "formik";
 import type { NextPage } from "next";
-
-const StyledDescription = styled.p`
-  font-size: 1.4rem;
-  text-align: center;
-  margin-top: 16px;
-`;
-
-const StyledForm = styled.form`
-  display: flex;
-  flex-flow: column wrap;
-  width: 100%;
-  max-width: 320px;
-  margin-top: 24px;
-`;
-
-const StyledLabel = styled.label`
-  font-size: 1.8rem;
-  font-weight: bold;
-  margin-top: 16px;
-`;
-
-const StyledRow = styled.div`
-  display: flex;
-  align-items: center;
-  font-size: 1.6rem;
-  margin-top: 4px;
-`;
-
-const StyledRadio = styled.input`
-  margin: 0;
-`;
-
-const StyledRadioLabel = styled.label`
-  font-size: 1.6rem;
-  padding-left: 4px;
-  margin-right: 16px;
-`;
-
-const StyledNumberInput = styled.input`
-  width: 64px;
-`;
-
-const StyledSubmitButton = styled(Button)`
-  font-weight: bold;
-  color: white;
-  background-color: #689f38;
-  margin-top: 48px;
-`;
+import {
+  formStyle,
+  labelStyle,
+  numberInputStyle,
+  paragraphStyle,
+  radioLabelStyle,
+  radioStyle,
+  rowStyle,
+  submitButtonStyle,
+} from "./IndexPage.css";
 
 const IndexPage: NextPage = () => {
   const randomPick = useRandomPick();
 
-  const initialValues = process.browser
+  const initialValues = isBrowser
     ? {
         mode: localStorage.getItem("mode") || "sp",
         min: +localStorage.getItem("min") || 1,
@@ -89,42 +51,47 @@ const IndexPage: NextPage = () => {
 
   return (
     <Layout>
-      <StyledDescription>
+      <p className={paragraphStyle}>
         DDRに収録されている曲({"2022/12/31"}
         現在)からランダムに数曲セレクトします
         <br />
         知らない曲や苦手な譜面でもとりあえずトライ！
         <br />
-        <strong>（※先行配信曲を含みます）</strong>
-      </StyledDescription>
-
-      <StyledForm onSubmit={handleSubmit}>
-        <StyledLabel>プレイスタイル</StyledLabel>
-        <StyledRow>
-          <StyledRadio
+        <strong>(※先行配信曲を含みます)</strong>
+      </p>
+      <form className={formStyle} onSubmit={handleSubmit}>
+        <label className={labelStyle}>プレイスタイル</label>
+        <div className={rowStyle}>
+          <input
             id="sp"
+            className={radioStyle}
             name="mode"
             type="radio"
             value="sp"
             checked={values.mode === "sp"}
             onChange={handleChange}
           />
-          <StyledRadioLabel htmlFor="sp">SP</StyledRadioLabel>
-          <StyledRadio
+          <label className={radioLabelStyle} htmlFor="sp">
+            SP
+          </label>
+          <input
             id="dp"
+            className={radioStyle}
             name="mode"
             type="radio"
             value="dp"
             checked={values.mode === "dp"}
             onChange={handleChange}
           />
-          <StyledRadioLabel htmlFor="dp">DP</StyledRadioLabel>
-        </StyledRow>
-
-        <StyledLabel>レベル(足1〜19)</StyledLabel>
-        <StyledRow>
+          <label className={radioLabelStyle} htmlFor="dp">
+            DP
+          </label>
+        </div>
+        <label className={labelStyle}>レベル(足1〜19)</label>
+        <div className={rowStyle}>
           足
-          <StyledNumberInput
+          <input
+            className={numberInputStyle}
             name="min"
             type="number"
             min="1"
@@ -133,7 +100,8 @@ const IndexPage: NextPage = () => {
             onChange={handleChange}
           />
           〜
-          <StyledNumberInput
+          <input
+            className={numberInputStyle}
             name="max"
             type="number"
             min="1"
@@ -141,11 +109,11 @@ const IndexPage: NextPage = () => {
             value={values.max}
             onChange={handleChange}
           />
-        </StyledRow>
-
-        <StyledLabel>選ぶ曲数(最大10曲)</StyledLabel>
-        <StyledRow>
-          <StyledNumberInput
+        </div>
+        <label className={labelStyle}>選ぶ曲数(最大10曲)</label>
+        <div className={rowStyle}>
+          <input
+            className={numberInputStyle}
             name="number"
             type="number"
             min="1"
@@ -154,10 +122,11 @@ const IndexPage: NextPage = () => {
             onChange={handleChange}
           />
           曲
-        </StyledRow>
-
-        <StyledSubmitButton type="submit">おみくじを引く</StyledSubmitButton>
-      </StyledForm>
+        </div>
+        <Button className={submitButtonStyle} type="submit">
+          おみくじを引く
+        </Button>
+      </form>
     </Layout>
   );
 };

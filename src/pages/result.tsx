@@ -1,48 +1,31 @@
-import { Button } from "@/components/Button";
-import { LinkButton } from "@/components/LinkButton";
-import { SongSummary, type SongSummaryProps } from "@/components/SongSummary";
-import { TwitterButton } from "@/components/TwitterButton";
+import { Button } from "@/components/atoms/buttons/Button";
+import { TwitterButton } from "@/components/atoms/buttons/TwitterButton";
+import { Link } from "@/components/atoms/Link";
+import {
+  SongSummary,
+  type SongSummaryProps,
+} from "@/components/atoms/SongSummary";
 import dictionary from "@/data/songs.json";
 import { Layout } from "@/layouts/Layout";
 import { getDifficultyInfo } from "@/utils/getDifficultyInfo";
+import { isBrowser } from "@/utils/isBrowser";
 import { useRandomPick } from "@/utils/useRandomPick";
-import styled from "@emotion/styled";
 import type { NextPage } from "next";
 import Head from "next/head";
 import { useRouter } from "next/router";
 import { useCallback, useMemo } from "react";
-
-const StyledParagraph = styled.p`
-  font-size: 1.8rem;
-`;
-
-const StyledList = styled.div`
-  max-width: 680px;
-  margin-top: 48px;
-
-  > :not(:first-of-type) {
-    margin-top: 8px;
-  }
-`;
-
-const StyledTwitterButton = styled(TwitterButton)`
-  margin-top: 48px;
-`;
-
-const StyledRepickButton = styled(Button)`
-  width: 180px;
-  margin-top: 16px;
-`;
-
-const StyledLinkButton = styled(LinkButton)`
-  width: 180px;
-  margin-top: 16px;
-`;
+import {
+  linkButtonStyle,
+  liStyle,
+  paragraphStyle,
+  repickButtonStyle,
+  twitterButtonStyle,
+  ulStyle,
+} from "./ResultPage.css";
 
 const ResultPage: NextPage = () => {
   const router = useRouter();
-  const mode =
-    process.browser && localStorage.getItem("mode") === "dp" ? "dp" : "sp";
+  const mode = isBrowser && localStorage.getItem("mode") === "dp" ? "dp" : "sp";
 
   const randomPick = useRandomPick();
   const handleRepickClick = useCallback(() => {
@@ -52,8 +35,11 @@ const ResultPage: NextPage = () => {
     randomPick({ mode, min, max, number });
   }, [randomPick, mode]);
 
-  const songs: SongSummaryProps[] = useMemo(() => {
-    const items: { name: string; difficulty: number }[] = [];
+  const songs: readonly SongSummaryProps[] = useMemo(() => {
+    const items: readonly {
+      readonly name: string;
+      readonly difficulty: number;
+    }[] = [];
 
     Object.entries(router.query).forEach(([k, v]) => {
       if (Array.isArray(v)) return;
@@ -99,25 +85,26 @@ const ResultPage: NextPage = () => {
       <Head>
         <meta name="robots" content="noindex" />
       </Head>
-      <StyledParagraph>{mode.toUpperCase()}のおみくじ結果</StyledParagraph>
-      <StyledList>
+      <p className={paragraphStyle}>{mode.toUpperCase()}のおみくじ結果</p>
+      <ul className={ulStyle}>
         {songs.map((song) => (
-          <SongSummary
-            {...song}
-            key={song.name + song.difficulty}
-            mode={mode}
-          />
+          <li key={song.name + song.difficulty} className={liStyle}>
+            <SongSummary {...song} mode={mode} />
+          </li>
         ))}
-      </StyledList>
-      <StyledTwitterButton
+      </ul>
+      <TwitterButton
+        className={twitterButtonStyle}
         tweet={tweet}
         hashtags={["DDR", "DDRおみくじ"]}
         url="https://monyu.github.io/ddr-omikuji/"
       />
-      <StyledRepickButton onClick={handleRepickClick}>
+      <Button className={repickButtonStyle} onClick={handleRepickClick}>
         もう一度引く
-      </StyledRepickButton>
-      <StyledLinkButton to="/">条件を変える</StyledLinkButton>
+      </Button>
+      <Link href="/">
+        <Button className={linkButtonStyle}>条件を変える</Button>
+      </Link>
     </Layout>
   );
 };
