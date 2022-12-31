@@ -4,7 +4,7 @@ import { SongSummary, type SongSummaryProps } from "@/components/SongSummary";
 import { TwitterButton } from "@/components/TwitterButton";
 import dictionary from "@/data/songs.json";
 import { Layout } from "@/layouts/Layout";
-import { getDifficulty } from "@/utils/getDifficulty";
+import { getDifficultyInfo } from "@/utils/getDifficultyInfo";
 import { useRandomPick } from "@/utils/useRandomPick";
 import styled from "@emotion/styled";
 import type { NextPage } from "next";
@@ -69,21 +69,26 @@ const ResultPage: NextPage = () => {
       .map(({ name, difficulty }) => ({
         ...dictionary[name],
         name,
-        difficulty: getDifficulty(mode, difficulty),
+        difficulty,
       }))
       .filter(({ artist }) => artist);
-  }, [mode, router.query]);
+  }, [router.query]);
 
   const tweet = useMemo(
     () =>
       [
         `DDRの${mode.toUpperCase()}で次の曲をプレイしよう！\n`,
-        ...songs.map(
-          ({ difficulty, levels, name, sa }) =>
-            `- ${name} (${difficulty[0] + (sa ? "⚡" : "")}:${
-              levels[mode][difficulty[2]]
-            })`
-        ),
+        ...songs.map(({ difficulty, levels, name, sa }) => {
+          const { name: difficultyName, hasShockArrow } = getDifficultyInfo({
+            mode,
+            difficulty,
+            sa,
+          });
+
+          return `- ${name} (${difficultyName + (hasShockArrow ? "⚡" : "")}:${
+            levels[mode][difficulty]
+          })`;
+        }),
         "\n",
       ].join("\n"),
     [mode, songs]

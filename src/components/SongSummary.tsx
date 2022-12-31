@@ -1,8 +1,10 @@
 import { SongData } from "@/data/songs";
+import { getDifficultyInfo } from "@/utils/getDifficultyInfo";
 import styled from "@emotion/styled";
+import { useMemo } from "react";
 
 type Props = SongData & {
-  difficulty: [string, string, number];
+  difficulty: number;
   mode: "sp" | "dp";
 };
 export type SongSummaryProps = Props;
@@ -33,11 +35,16 @@ export const SongSummary = ({
   sa,
   version,
 }: Props) => {
-  const [difficultyName, color, levelIndex] = difficulty;
-  const level = levels[mode][levelIndex];
-  const hasShockArrow = Array.isArray(sa)
-    ? sa[mode === "sp" ? levelIndex : levelIndex + 1]
-    : difficultyName === "鬼" && sa;
+  const level = levels[mode][difficulty];
+
+  const {
+    name: difficultyName,
+    color,
+    hasShockArrow,
+  } = useMemo(
+    () => getDifficultyInfo({ mode, difficulty, sa }),
+    [difficulty, mode, sa]
+  );
 
   return (
     <StyledSummary>
