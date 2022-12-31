@@ -90,10 +90,12 @@ const IndexPage: NextPage = () => {
   return (
     <Layout>
       <StyledDescription>
-        DDRに収録されている曲({"2022/12/30"}
+        DDRに収録されている曲({"2022/12/31"}
         現在)からランダムに数曲セレクトします
         <br />
         知らない曲や苦手な譜面でもとりあえずトライ！
+        <br />
+        <strong>（※先行配信曲を含みます）</strong>
       </StyledDescription>
 
       <StyledForm onSubmit={handleSubmit}>
