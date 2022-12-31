@@ -7,11 +7,11 @@ type Options = {
 };
 
 const DIFFICULTIES = [
-  { name: "習", color: "#36efff" },
-  { name: "楽", color: "#ffc300" },
-  { name: "踊", color: "#f53f57" },
-  { name: "激", color: "#3aff25" },
-  { name: "鬼", color: "#ff42ff" },
+  { name: "習", color: "cyan" },
+  { name: "楽", color: "yellow" },
+  { name: "踊", color: "red" },
+  { name: "激", color: "green" },
+  { name: "鬼", color: "pink" },
 ] as const;
 
 export const getDifficultyInfo = ({ mode, difficulty, sa }: Options) => {

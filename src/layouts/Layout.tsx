@@ -1,33 +1,16 @@
-import styled from "@emotion/styled";
-import Link from "next/link";
+import { Link } from "@/components/atoms/Link";
 import type { ReactNode } from "react";
+import { articleStyle, headingStyle } from "./Layout.css";
 
 type Props = {
-  children: ReactNode;
+  readonly children: ReactNode;
 };
 
-const StyledWrapper = styled.article`
-  display: flex;
-  flex-flow: column wrap;
-  align-items: center;
-  width: 100%;
-  padding: 16px;
-`;
-
-const StyledLink = styled(Link)`
-  all: unset;
-`;
-
-const StyledTitle = styled.h1`
-  font-size: 2.4rem;
-  cursor: pointer;
-`;
-
 export const Layout = ({ children }: Props) => (
-  <StyledWrapper>
-    <StyledLink href="/">
-      <StyledTitle>💃DDRおみくじ🕺</StyledTitle>
-    </StyledLink>
+  <article className={articleStyle}>
+    <Link href="/">
+      <h1 className={headingStyle}>💃DDRおみくじ🕺</h1>
+    </Link>
     {children}
-  </StyledWrapper>
+  </article>
 );

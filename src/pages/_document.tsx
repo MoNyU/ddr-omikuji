@@ -1,3 +1,4 @@
+import { themeClass } from "@/styles/theme.css";
 import { Head, Html, Main, NextScript } from "next/document";
 
 const Document = () => (
@@ -24,7 +25,7 @@ const Document = () => (
         href="https://unpkg.com/modern-css-reset/dist/reset.min.css"
       />
     </Head>
-    <body>
+    <body className={themeClass}>
       <Main />
       <NextScript />
     </body>
