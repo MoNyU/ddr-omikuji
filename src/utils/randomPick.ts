@@ -4,18 +4,20 @@ import intersection from "lodash/intersection";
 import range from "lodash/range";
 import sampleSize from "lodash/sampleSize";
 
-const songs = Object.entries(
-  (dictionary as unknown) as Songs
-).map(([name, data]) => ({ ...data, name }));
+const songs = Object.entries(dictionary as unknown as Songs).map(
+  ([name, data]) => ({ ...data, name })
+);
 
 type Option = {
-  mode: "sp" | "dp";
-  min: number;
-  max: number;
-  number?: number;
+  readonly mode: "sp" | "dp";
+  readonly min: number;
+  readonly max: number;
+  readonly number?: number;
 };
 
-type RandomPick = (option: Option) => { difficulty: number; name: string }[];
+type RandomPick = (
+  option: Option
+) => readonly { readonly difficulty: number; readonly name: string }[];
 
 export const randomPick: RandomPick = ({ mode, min, max, number = 1 }) => {
   const selectLevels = range(min, max + 1);

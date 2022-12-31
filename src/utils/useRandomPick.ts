@@ -1,12 +1,12 @@
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 import { useCallback } from "react";
 import { randomPick } from "./randomPick";
 
 type Option = {
-  mode: "sp" | "dp";
-  min: number;
-  max: number;
-  number: number;
+  readonly mode: "sp" | "dp";
+  readonly min: number;
+  readonly max: number;
+  readonly number: number;
 };
 
 export const useRandomPick = () => {
