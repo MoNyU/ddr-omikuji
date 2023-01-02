@@ -6,7 +6,7 @@ import { recipe } from "@vanilla-extract/recipes";
 export const headingStyle = style({
   fontSize: "1.8rem",
   fontWeight: "bold",
-  wordBreak: "break-all",
+  wordBreak: "break-word",
 });
 
 export const difficultyStyle = recipe({
