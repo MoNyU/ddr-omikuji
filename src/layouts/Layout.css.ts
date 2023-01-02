@@ -6,6 +6,7 @@ export const articleStyle = style({
   alignItems: "center",
   width: "100%",
   padding: "16px",
+  paddingBottom: "48px",
 });
 
 export const headingStyle = style({
