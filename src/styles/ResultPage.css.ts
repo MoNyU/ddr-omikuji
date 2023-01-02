@@ -10,6 +10,7 @@ export const ulStyle = style({
   gap: "8px",
   maxWidth: "680px",
   marginTop: "48px",
+  padding: 0,
 });
 
 export const liStyle = style({
