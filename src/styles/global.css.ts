@@ -5,7 +5,6 @@ globalStyle("html", {
 });
 
 globalStyle("body", {
-  paddingBottom: "env(safe-area-inset-bottom)",
   fontFamily:
     // eslint-disable-next-line @typescript-eslint/quotes
     '"Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif',
