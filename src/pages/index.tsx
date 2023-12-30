@@ -52,7 +52,7 @@ const IndexPage: NextPage = () => {
   return (
     <Layout>
       <p className={paragraphStyle}>
-        DDRに収録されている曲({"2023/01/02"}
+        DDRに収録されている曲({"2023/12/30"}
         現在)からランダムに数曲セレクトします
         <br />
         知らない曲や苦手な譜面でもとりあえずトライ！
