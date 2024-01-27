@@ -794,7 +794,26 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@vanilla-extract/css@npm:1.9.2, @vanilla-extract/css@npm:^1.9.2":
+"@vanilla-extract/css@npm:1.14.1":
+  version: 1.14.1
+  resolution: "@vanilla-extract/css@npm:1.14.1"
+  dependencies:
+    "@emotion/hash": ^0.9.0
+    "@vanilla-extract/private": ^1.0.3
+    chalk: ^4.1.1
+    css-what: ^6.1.0
+    cssesc: ^3.0.0
+    csstype: ^3.0.7
+    deep-object-diff: ^1.1.9
+    deepmerge: ^4.2.2
+    media-query-parser: ^2.0.2
+    modern-ahocorasick: ^1.0.0
+    outdent: ^0.8.0
+  checksum: d46afaf16ad0d487fe4ad83f6ca3a08aa0c566fcaa1360d045b30282eab8853005e9bac36c969d27a06185e15832674e5c5de281afe5b3e3dcf8416d137cc819
+  languageName: node
+  linkType: hard
+
+"@vanilla-extract/css@npm:^1.9.2":
   version: 1.9.2
   resolution: "@vanilla-extract/css@npm:1.9.2"
   dependencies:
@@ -1177,6 +1196,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"css-what@npm:^6.1.0":
+  version: 6.1.0
+  resolution: "css-what@npm:6.1.0"
+  checksum: b975e547e1e90b79625918f84e67db5d33d896e6de846c9b584094e529f0c63e2ab85ee33b9daffd05bff3a146a1916bec664e18bb76dd5f66cbff9fc13b2bbe
+  languageName: node
+  linkType: hard
+
 "cssesc@npm:^3.0.0":
   version: 3.0.0
   resolution: "cssesc@npm:3.0.0"
@@ -1211,7 +1237,7 @@ __metadata:
     "@types/react-dom": 18.0.10
     "@typescript-eslint/eslint-plugin": 5.47.1
     "@typescript-eslint/parser": 5.47.1
-    "@vanilla-extract/css": 1.9.2
+    "@vanilla-extract/css": 1.14.1
     "@vanilla-extract/next-plugin": 2.1.1
     "@vanilla-extract/recipes": 0.3.0
     "@vanilla-extract/webpack-plugin": 2.2.0
@@ -1270,7 +1296,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"deep-object-diff@npm:^1.1.0":
+"deep-object-diff@npm:^1.1.0, deep-object-diff@npm:^1.1.9":
   version: 1.1.9
   resolution: "deep-object-diff@npm:1.1.9"
   checksum: ecd42455e4773f653595d28070295e7aaa8402db5f8ab21d0bec115a7cb4de5e207a5665514767da5f025c96597f1d3a0a4888aeb4dd49e03c996871a3aa05ef
@@ -2414,6 +2440,13 @@ __metadata:
   dependencies:
     brace-expansion: ^1.1.7
   checksum: c154e566406683e7bcb746e000b84d74465b3a832c45d59912b9b55cd50dee66e5c4b1e5566dba26154040e51672f9aa450a9aef0c97cfc7336b78b7afb9540a
+  languageName: node
+  linkType: hard
+
+"modern-ahocorasick@npm:^1.0.0":
+  version: 1.0.1
+  resolution: "modern-ahocorasick@npm:1.0.1"
+  checksum: ec83479f406511f37a966d66ce1c2b1701bb4a2cc2aabbbc257001178c9fbc48ce748c88eb10dfe72ba8b7f991a0bc7f1fa14683f444685edd1a9eeb32ecbc1e
   languageName: node
   linkType: hard
 
