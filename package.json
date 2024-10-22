@@ -20,7 +20,7 @@
   },
   "homepage": "https://monyu.github.io/ddr-omikuji/",
   "dependencies": {
-    "@mui/base": "5.0.0-alpha.112",
+    "@mui/base": "5.0.0-beta.60",
     "clsx": "1.2.1",
     "formik": "2.2.9",
     "lodash": "4.17.21",
