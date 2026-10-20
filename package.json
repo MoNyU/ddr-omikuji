@@ -22,7 +22,7 @@
   "dependencies": {
     "@mui/base": "5.0.0-alpha.112",
     "clsx": "1.2.1",
-    "formik": "2.2.9",
+    "formik": "2.4.9",
     "lodash": "4.17.21",
     "next": "13.1.1",
     "react": "18.2.0",
